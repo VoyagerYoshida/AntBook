@@ -50,7 +50,7 @@ S_MAP = lambda: map(str, INPUT().split())
 LIST = lambda: list(map(int, INPUT().split()))
 S_LIST = lambda: list(map(str, INPUT().split()))
 
-sys.setrecursionlimit(10 ** 9)
+sys.setrecursionlimit(10**9)
 INF = float('inf')
 mod = 10**9 + 7
 
@@ -61,5 +61,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
+　　
 ```
