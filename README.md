@@ -83,8 +83,8 @@ if __name__ == '__main__':
 - **radians**(x) : 角 x を度からラジアンに変換します.
 - (注) **gcd**(a, b) : 整数 a と b の最大公約数を返します. a と b のいずれかがゼロでない場合, gcd(a, b) の値は a と b の両方を割り切ることのできる, 最も大きな正の整数です. gcd(0, 0) は 0 を返します.
 #### itertools
-- permutations : 
-- combinations : 
+- permutations(iterable, r=None): iterable の要素からなる長さ r の順列 (permutation) を連続的に返します。
+- combinations(iterable, r) : 
 - product : 
 - accumulate : 
 #### operator
