@@ -84,20 +84,20 @@ if __name__ == '__main__':
 - (注) **gcd**(a, b) : 整数 a と b の最大公約数を返します. a と b のいずれかがゼロでない場合, gcd(a, b) の値は a と b の両方を割り切ることのできる, 最も大きな正の整数です. gcd(0, 0) は 0 を返します.
 #### *itertools*
 - **permutations**(iterable, r=None): iterable の要素からなる長さ r の順列 (permutation) を連続的に返します。
-- **combinations**(iterable, r) : 
-- **product** : 
-- **accumulate** : 
+- **combinations**(iterable, r) : 入力 iterable の要素からなる長さ r の部分列を返します. 
+- **product**(\*iterables, repeat=1) : 入力イテラブルのデカルト積です. 
+- **accumulate**(iterable\[, func\]) : 累計や加算ではない (func オプション引数で指定される) 2変数関数による累積結果を返すイテレータを作成します。 func が与えられた場合、2つの引数を取る関数でなければなりません。 入力 iterable の要素は、 func が引数として取れる型を持ちます。 
 #### *operator*
-- **itemgetter** : 
-- **mul** : 
+- **itemgetter**(item or \*item) : 演算対象からその __getitem__() メソッドを使って item を取得する呼び出し可能なオブジェクトを返します. 二つ以上のアイテムを要求された場合には, アイテムのタプルを返します.  
+- **mul**(a, b) : 数値 a および b について a * b を返します。
 #### *copy*
-- **deepcopy** : 
+- **deepcopy**(x\[,memo\]) : x の深い(deep)コピーを返します.
 #### *string*
-- **ascii_lowercase** : 
-- **ascii_uppercase** : 
-- **digits** : 
+- **ascii_lowercase** : 小文字 'abcdefghijklmnopqrstuvwxyz'. この値はロケールに依存せず, 固定です.
+- **ascii_uppercase** : 大文字 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'. この値はロケールに依存せず, 固定です.
+- **digits** : 文字列 '0123456789' です.
 #### *functools*
-- **reduce** : 
+- **reduce**(function, iterable\[, initializer\]) : 2 引数の function を iterable の要素に対して左から右に累積的に適用し, イテラブルを単一の値に縮約します. 
 
 ### 関数
 #### INPUT
