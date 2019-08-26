@@ -65,23 +65,23 @@ if __name__ == '__main__':
 ```
 
 ### ライブラリ
-#### sys, re, os
-- sys : 
-- re : 
-- os : 
-#### collections
-- deque : 
-- defaultdict :
-- Counter : 
-#### math
-- ceil : 
-- sqrt : 
-- hypot : 
-- factorial : 
-- pi : 
-- sin, cos : 
-- radians : 
-- (注) gcd :
+#### *sys*, *re*, *os*
+- *sys* : 
+- *re* : 
+- *os* : 
+#### *collections*
+- **deque**(\[iterable\[, maxlen\]\]) : iterable で与えられるデータから, 新しい deque オブジェクトを (append() をつかって) 左から右に初期化して返します. iterable が指定されない場合, 新しい deque オブジェクトは空になります.
+- **defaultdict**(\[default_factory\[, ...\]\]) : 新しいディクショナリ様のオブジェクトを返します.  defaultdict は組み込みの dict のサブクラスです.メソッドをオーバーライドし, 書き込み可能なインスタンス変数を 1 つ追加している以外は dict クラスと同じです. 同じ部分については以下では省略されています. 
+- **Counter**(\[iterable-or-mapping\]) : Counter はハッシュ可能なオブジェクトをカウントする dict のサブクラスです. これは, 要素を辞書のキーとして保存し, そのカウントを辞書の値として保存するコレクションです. カウントは、0 や負のカウントを含む整数値をとれます. Counter クラスは, 他の言語のバッグや多重集合のようなものです. 
+#### *math*
+- **ceil**(x) : x の「天井」(x 以上の最小の整数)を返します.
+- **sqrt**(x) : x の平方根を返します.  
+- **hypot**(x, y) : ユークリッドノルム (sqrt(x*x + y*y)) を返します. これは原点から点 (x, y) のベクトルの長さです.
+- **factorial**(x) : x の階乗を整数で返します.
+- **pi** : 利用可能なだけの精度の数学定数 π = 3.141592... (円周率).
+- **sin**(x), **cos**(x) : x ラジアンの正弦, 余弦を返します.
+- **radians**(x) : 角 x を度からラジアンに変換します.
+- (注) **gcd**(a, b) : 整数 a と b の最大公約数を返します. a と b のいずれかがゼロでない場合, gcd(a, b) の値は a と b の両方を割り切ることのできる, 最も大きな正の整数です. gcd(0, 0) は 0 を返します.
 #### itertools
 - permutations : 
 - combinations : 
