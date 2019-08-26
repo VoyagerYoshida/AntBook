@@ -1,6 +1,6 @@
 # AtCoder 版蟻本
 ## 説明
-これはプログラミングコンテストチャレンジブックの勉強の個人レポジトリです.
+これはプログラミングコンテストチャレンジブックの勉強用個人レポジトリです.
 
 ## コンテンツ
 ### 初級編 ( 01_Easy )
@@ -63,3 +63,51 @@ if __name__ == '__main__':
     main()
 　　
 ```
+
+### ライブラリ
+#### sys, re, os
+- sys : 
+- re : 
+- os : 
+#### collections
+- deque : 
+- defaultdict :
+- Counter : 
+#### math
+- ceil : 
+- sqrt : 
+- hypot : 
+- factorial : 
+- pi : 
+- sin, cos : 
+- radians : 
+- (注) gcd :
+#### itertools
+- permutations : 
+- combinations : 
+- product : 
+- accumulate : 
+#### operator
+- itemgetter : 
+- mul : 
+#### copy
+- deepcopy : 
+#### string
+- ascii_lowercase : 
+- ascii_uppercase : 
+- digits : 
+#### functools
+- reduce : 
+
+### 関数
+#### INPUT
+#### INT
+#### MAP
+#### S_MAP
+#### LIST
+#### S_LIST
+
+### その他
+#### sys.setrecursionlimit(10**9)
+#### INF = float('inf')
+#### mod = 10**9 + 7
