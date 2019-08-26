@@ -4,7 +4,7 @@
 
 ## コンテンツ
 ### 初級編 ( 01_Easy )
-[AtCoder 版！蟻本 (上級編)](https://qiita.com/drken/items/e77685614f3c6bf86f44)
+[AtCoder 版！蟻本 (初級編)](https://qiita.com/drken/items/e77685614f3c6bf86f44)
 1. すべての基本 "全探索" ( 01_BruteForceSearch )
 1. 猪突猛進! "貪欲法" ( 02_GreedyAlgorithm )
 1. 値を覚えて再利用 "動的計画法" ( 03_DynamicProgramming )
