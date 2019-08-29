@@ -42,6 +42,7 @@ from operator import itemgetter, mul
 from copy import deepcopy
 from string import ascii_lowercase, ascii_uppercase, digits
 from functools import reduce
+from bisect import bisect_left
 
 INPUT = lambda: sys.stdin.readline().rstrip()
 INT = lambda: int(INPUT())
@@ -98,16 +99,5 @@ if __name__ == '__main__':
 - **digits** : 文字列 '0123456789' です.
 #### *functools*
 - **reduce**(function, iterable\[, initializer\]) : 2 引数の function を iterable の要素に対して左から右に累積的に適用し, イテラブルを単一の値に縮約します. 
-
-### 関数
-#### INPUT
-#### INT
-#### MAP
-#### S_MAP
-#### LIST
-#### S_LIST
-
-### その他
-#### sys.setrecursionlimit(10**9)
-#### INF = float('inf')
-#### mod = 10**9 + 7
+#### *bisect*
+- **bisect_left**(a, x, lo=0, hi=len(a)) : ソートされた順序を保ったまま x を a に挿入できる点を探し当てます. リストの中から検索する部分集合を指定するには, パラメータの lo と hi を使います. 
