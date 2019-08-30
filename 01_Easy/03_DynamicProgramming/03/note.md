@@ -8,8 +8,8 @@
 
 ### AtCoder 上の類題
 
-- [AOJ Course ナップザック問題](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_C&lang=jp)　(例題そのものです) -> a.py
-- [AOJ 2502 VOCAL ANDROID](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2502) -> b.py
+- [AOJ Course ナップザック問題](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_C&lang=jp)　(例題そのものです)
+- [AOJ 2502 VOCAL ANDROID](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2502)
 
 ### コメント
 
