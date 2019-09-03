@@ -286,7 +286,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 >>> li = [3, 5, 1, 6, 7, 2, 9, 8]
 >>> sorted_li =sorted(li)
 [1, 2, 3, 5, 6, 7, 8, 9]
->>> bisect_left(sorted, 4)
+>>> bisect_left(sorted_li, 4)
 3
 >>> bisect_left(sorted_li, 5)  # 既存の 5 がどこにあるのか探索したことと等しい.
 3
