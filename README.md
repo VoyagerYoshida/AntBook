@@ -143,9 +143,9 @@ dict_keys(['a', 'b', 'c'])
 3.14159265359
 
 >>> a, b = 6, 4
->>> gcd(a, b)  # 最大公約数
+>>> gcd(a, b)  # 2 数の最大公約数
 2
->>> (a * b) / gcd(a, b)  # 最小公倍数
+>>> (a * b) / gcd(a, b)  # 2 数の最小公倍数
 12
 ```
 
@@ -228,7 +228,23 @@ dict_keys(['a', 'b', 'c'])
 #### *copy*
 - **deepcopy**(x\[,memo\]) : x の深い(deep)コピーを返します.
 ```python
-from copy import deepcopy
+>>> from copy import copy, deepcopy
+
+>>> old_li = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
+>>> copy_li = copy(old_li)
+>>> old_li[1][0] = 'changed'
+>>> old_li
+[[1, 1, 1], ['changed', 2, 2], [3, 3, 3]]
+>>> copy_li
+[[1, 1, 1], ['changed', 2, 2], [3, 3, 3]]
+
+>>> old_li = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
+>>> deepcopy_li = deepcopy(old_li)
+>>> old_li[1][0] = 'changed'
+>>> old_li
+[[1, 1, 1], [2, 2, 2], [3, 3, 3]]
+>>> deepcopy_li
+[[1, 1, 1], ['changed', 2, 2], [3, 3, 3]]
 ```
 
 #### *string*
@@ -252,12 +268,12 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 >>> from functools import reduce
 >>> from math import gcd as gcd_base  # from fractions import gcd
 
->>> gcd = lambda *numbers: reduce(gcd_base, numbers)  # 3 つ以上の数の最大公約数
+>>> gcd = lambda *numbers: reduce(gcd_base, numbers)  # 3 数以上の最大公約数
 >>> gcd(27, 18, 9)
 9
 
 >>> lcm_base = lambda x, y: (x * y) // gcd_base(x, y)
->>> lcm = lambda *numbers: reduce(lcm_base, numbers, 1)  # 3 つ以上の数の最小公倍数
+>>> lcm = lambda *numbers: reduce(lcm_base, numbers, 1)  # 3 数以上の最小公倍数
 >>> lcm(27, 18, 9, 3)
 54
 ```
@@ -265,5 +281,13 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 #### *bisect*
 - **bisect_left**(a, x, lo=0, hi=len(a)) : ソートされた順序を保ったまま x を a に挿入できる点を探し当てます. リストの中から検索する部分集合を指定するには, パラメータの lo と hi を使います. 
 ```python
-from bisect import bisect_left
+>>> from bisect import bisect_left
+
+>>> li = [3, 5, 1, 6, 7, 2, 9, 8]
+>>> sorted_li =sorted(li)
+[1, 2, 3, 5, 6, 7, 8, 9]
+>>> bisect_left(sorted, 4)
+3
+>>> bisect_left(sorted_li, 5)  # 既存の 5 がどこにあるのか探索したことと等しい.
+3
 ```
