@@ -214,6 +214,12 @@ dict_keys(['a', 'b', 'c'])
 >>> from operator import itemgetter, mul
 >>> from itertools import accumulate
 
+>>> li = list(zip([1, 3, 5, 6, 7, 1, 4], [3, 4, 1, 0, 8, 5, 2]))
+>>> sorted(li, key=itemgetter(0))
+[(1, 3), (1, 5), (3, 4), (4, 2), (5, 1), (6, 0), (7, 8)]
+>>> sorted(li, key=itemgetter(1))
+[(6, 0), (5, 1), (4, 2), (1, 3), (3, 4), (1, 5), (7, 8)]
+
 >>> m = list(accumulate(range(1, 6), mul))
 >>> m
 [1, 2, 6, 24, 120]
@@ -232,12 +238,12 @@ from copy import deepcopy
 ```python
 >>> from string import ascii_lowercase, ascii_uppercase, digits
 
->>> ascii_lowercase
-abcdefghijklmnopqrstuvwxyz
->>> ascii_uppercase
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
->>> digits
-0123456789
+>>> ascii_lowercase 
+abcdefghijklmnopqrstuvwxyz 
+>>> ascii_uppercase 
+ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+>>> digits 
+0123456789 
 ```
 
 #### *functools*
