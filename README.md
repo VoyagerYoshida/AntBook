@@ -70,10 +70,49 @@ if __name__ == '__main__':
 - *sys* : インタプリタで使用・管理している変数や, インタプリタの動作に深く関連する関数を定義しています.
 - *re* : Perl に見られる正規表現マッチング操作と同様のものを提供します.
 - *os* : OS 依存の機能を利用するポータブルな方法を提供します.
+
 #### *collections*
 - **deque**(\[iterable\[, maxlen\]\]) : iterable で与えられるデータから, 新しい deque オブジェクトを (append() をつかって) 左から右に初期化して返します. iterable が指定されない場合, 新しい deque オブジェクトは空になります.
 - **defaultdict**(\[default_factory\[, ...\]\]) : 新しいディクショナリ様のオブジェクトを返します.  defaultdict は組み込みの dict のサブクラスです.メソッドをオーバーライドし, 書き込み可能なインスタンス変数を 1 つ追加している以外は dict クラスと同じです. 同じ部分については以下では省略されています. 
-- **Counter**(\[iterable-or-mapping\]) : Counter はハッシュ可能なオブジェクトをカウントする dict のサブクラスです. これは, 要素を辞書のキーとして保存し, そのカウントを辞書の値として保存するコレクションです. カウントは、0 や負のカウントを含む整数値をとれます. Counter クラスは, 他の言語のバッグや多重集合のようなものです. 
+- **Counter**(\[iterable-or-mapping\]) : Counter はハッシュ可能なオブジェクトをカウントする dict のサブクラスです. これは, 要素を辞書のキーとして保存し, そのカウントを辞書の値として保存するコレクションです. カウントは、0 や負のカウントを含む整数値をとれます. Counter クラスは, 他の言語のバッグや多重集合のようなものです.
+```python
+>>> from collections import deque, defaultdict, Counter
+
+>>> stack = deque(['a', 'b', 'c', 'd', 'e'])  # スタックとして使う場合
+>>> stack.append('f')  # プッシュ
+deque(['a', 'b', 'c', 'd', 'e', 'f'])
+>>> stack.popleft()  # ポップ
+f
+>>> stack
+deque(['a', 'b', 'c', 'd', 'e'])
+
+>>> queue = deque(['a', 'b', 'c', 'd', 'e'])  # キューとして使う場合
+>>> queue.append('f')  # エンキュー
+deque(['a', 'b', 'c', 'd', 'e', 'f'])
+>>> queue.popleft()  # デキュー
+a
+>>> queue
+deque(['b', 'c', 'd', 'e', 'f'])
+
+>>> d = defaultdict(int)
+>>> d["hoge"]  # 辞書にないキーにアクセスしても Error が出ない. 
+0
+>>> d["fuga"] += 1
+>>> d["fuga"]
+1
+
+>>> li = ['a', 'a', 'a', 'a', 'b', 'c', 'c']
+>>> c = Counter(li)
+>>> c  # リスト内の要素の数をカウントする. 
+Counter({'a': 4, 'c': 2, 'b': 1})
+>>> c['a']
+4
+>>> c['d']
+0
+>>> c.keys()
+dict_keys(['a', 'b', 'c'])
+```
+
 #### *math*
 - **ceil**(x) : x の「天井」(x 以上の最小の整数)を返します.
 - **sqrt**(x) : x の平方根を返します.  
@@ -83,21 +122,81 @@ if __name__ == '__main__':
 - **sin**(x), **cos**(x) : x ラジアンの正弦, 余弦を返します.
 - **radians**(x) : 角 x を度からラジアンに変換します.
 - (注 : from fractions import ) **gcd**(a, b) : 整数 a と b の最大公約数を返します. a と b のいずれかがゼロでない場合, gcd(a, b) の値は a と b の両方を割り切ることのできる, 最も大きな正の整数です. gcd(0, 0) は 0 を返します.
+```python
+>>> from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians, gcd  # from fractions import gcd
+
+>>> ceil(3.3)
+4
+>>> sqrt(5)
+2.23606797749979
+>>> hypot(3, 4)
+5
+>>> factorial(5)
+120
+>>> pi
+3.141592653589793
+>>> sin(pi)
+0
+>>> cos(pi)
+-1
+>>> radians(180)
+3.14159265359
+
+>>> a, b = 6, 4
+>>> gcd(a, b)  # 最大公約数
+2
+>>> (a * b) / gcd(a, b)  # 最小公倍数
+12
+```
+
 #### *itertools*
 - **permutations**(iterable, r=None): iterable の要素からなる長さ r の順列 (permutation) を連続的に返します。
 - **combinations**(iterable, r) : 入力 iterable の要素からなる長さ r の部分列を返します. 
 - **product**(\*iterables, repeat=1) : 入力イテラブルのデカルト積です. 
 - **accumulate**(iterable\[, func\]) : 累計や加算ではない (func オプション引数で指定される) 2変数関数による累積結果を返すイテレータを作成します。 func が与えられた場合、2つの引数を取る関数でなければなりません。 入力 iterable の要素は、 func が引数として取れる型を持ちます。 
+```python
+from itertools import permutations, combinations, product, accumulate
+```
+
 #### *operator*
 - **itemgetter**(item or \*item) : 演算対象からその __getitem__() メソッドを使って item を取得する呼び出し可能なオブジェクトを返します. 二つ以上のアイテムを要求された場合には, アイテムのタプルを返します.  
 - **mul**(a, b) : 数値 a および b について a * b を返します。
+```python
+from operator import itemgetter, mul
+```
+
 #### *copy*
 - **deepcopy**(x\[,memo\]) : x の深い(deep)コピーを返します.
+```python
+from copy import deepcopy
+```
+
 #### *string*
 - **ascii_lowercase** : 小文字 'abcdefghijklmnopqrstuvwxyz'. この値はロケールに依存せず, 固定です.
 - **ascii_uppercase** : 大文字 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'. この値はロケールに依存せず, 固定です.
 - **digits** : 文字列 '0123456789' です.
+```python
+from string import ascii_lowercase, ascii_uppercase, digits
+```
+
 #### *functools*
 - **reduce**(function, iterable\[, initializer\]) : 2 引数の function を iterable の要素に対して左から右に累積的に適用し, イテラブルを単一の値に縮約します. 
+```python
+>>> from functools import reduce
+>>> from math import gcd as gcd_base  # from fractions import gcd
+
+>>> gcd = lambda *numbers: reduce(gcd_base, numbers)  # 3 つ以上の数の最大公約数
+>>> gcd(27, 18, 9)
+9
+
+>>> lcm_base = lambda x, y: (x * y) // gcd_base(x, y)
+>>> lcm = lambda *numbers: reduce(lcm_base, numbers, 1)  # 3 つ以上の数の最小公倍数
+>>> lcm(27, 18, 9, 3)
+54
+```
+
 #### *bisect*
 - **bisect_left**(a, x, lo=0, hi=len(a)) : ソートされた順序を保ったまま x を a に挿入できる点を探し当てます. リストの中から検索する部分集合を指定するには, パラメータの lo と hi を使います. 
+```python
+from bisect import bisect_left
+```
