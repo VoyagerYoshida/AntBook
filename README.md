@@ -155,14 +155,68 @@ dict_keys(['a', 'b', 'c'])
 - **product**(\*iterables, repeat=1) : 入力イテラブルのデカルト積です. 
 - **accumulate**(iterable\[, func\]) : 累計や加算ではない (func オプション引数で指定される) 2変数関数による累積結果を返すイテレータを作成します。 func が与えられた場合、2つの引数を取る関数でなければなりません。 入力 iterable の要素は、 func が引数として取れる型を持ちます。 
 ```python
-from itertools import permutations, combinations, product, accumulate
+>>> from itertools import permutations, combinations, product, accumulate
+
+>>> p1 = list(permutations(range(4)))
+>>> p1
+[(0, 1, 2, 3),
+ (0, 1, 3, 2),
+ (0, 2, 1, 3),
+       :
+ (3, 2, 0, 1),
+ (3, 2, 1, 0)]
+>>> p2 = list(permutations('ABC', 2))
+>>> p2
+[('A', 'B'),
+ ('A', 'C'),
+ ('B', 'A'),
+ ('B', 'C'),
+ ('C', 'A'),
+ ('C', 'B')]
+
+>>> c = list(combinations(range(4), 3))
+>>> c
+[(0, 1, 2), 
+ (0, 1, 3), 
+ (0, 2, 3), 
+ (1, 2, 3)]
+ 
+>>> p1 = list(product('ABCD', 'xy'))
+>>> p1
+[('A', 'x'),
+ ('A', 'y'),
+ ('B', 'x'),
+ ('B', 'y'),
+ ('C', 'x'),
+ ('C', 'y'),
+ ('D', 'x'),
+ ('D', 'y')]
+>>> p2 = list(product(range(2), repeat=3))
+>>> p2
+[(0, 0, 0),
+ (0, 0, 1),
+ (0, 1, 0),
+ (0, 1, 1),
+ (1, 0, 0),
+ (1, 0, 1),
+ (1, 1, 0),
+ (1, 1, 1)]
+ 
+>>> m = list(accumulate([0, 2, 4, 5, 3, 2], max))
+>>> m
+[0, 2, 4, 5, 5, 5]
 ```
 
 #### *operator*
 - **itemgetter**(item or \*item) : 演算対象からその __getitem__() メソッドを使って item を取得する呼び出し可能なオブジェクトを返します. 二つ以上のアイテムを要求された場合には, アイテムのタプルを返します.  
 - **mul**(a, b) : 数値 a および b について a * b を返します。
 ```python
-from operator import itemgetter, mul
+>>> from operator import itemgetter, mul
+>>> from itertools import accumulate
+
+>>> m = list(accumulate(range(1, 6), mul))
+>>> m
+[1, 2, 6, 24, 120]
 ```
 
 #### *copy*
@@ -176,7 +230,14 @@ from copy import deepcopy
 - **ascii_uppercase** : 大文字 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'. この値はロケールに依存せず, 固定です.
 - **digits** : 文字列 '0123456789' です.
 ```python
-from string import ascii_lowercase, ascii_uppercase, digits
+>>> from string import ascii_lowercase, ascii_uppercase, digits
+
+>>> ascii_lowercase
+abcdefghijklmnopqrstuvwxyz
+>>> ascii_uppercase
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+>>> digits
+0123456789
 ```
 
 #### *functools*
