@@ -42,7 +42,8 @@ from operator import itemgetter, mul
 from copy import deepcopy
 from string import ascii_lowercase, ascii_uppercase, digits
 from functools import reduce
-from bisect import bisect_left
+from bisect import bisect_left, insort_left
+from heapq import heapify, heappush, heappop
 
 INPUT = lambda: sys.stdin.readline().rstrip()
 INT = lambda: int(INPUT())
@@ -281,7 +282,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 #### *bisect*
 - **bisect_left**(a, x, lo=0, hi=len(a)) : ソートされた順序を保ったまま x を a に挿入できる点を探し当てます. リストの中から検索する部分集合を指定するには, パラメータの lo と hi を使います. 
 ```python
->>> from bisect import bisect_left
+>>> from bisect import bisect_left, insort_left
 
 >>> li = [3, 5, 1, 6, 7, 2, 9, 8]
 >>> sorted_li =sorted(li)
@@ -290,4 +291,29 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 3
 >>> bisect_left(sorted_li, 5)  # 既存の 5 がどこにあるのか探索したことと等しい.
 3
+
+>>> insort_left(sorted_li, 4)
+>>> sorted_li
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+#### *heapq*
+- **heapify**(x) : リスト x をインプレース処理し, 線形時間でヒープに変換します.
+- **heappush**(heap, item) : item を heap に push します. ヒープ不変式を保ちます.
+- **heappop**(heap) : pop を行い, heap から最小の要素を返します. ヒープ不変式は保たれます.
+```python
+>>> from heapq import heapify, heappush, heappop
+
+>>> li = [1, 6, 8, 0, -1]
+>>> minus_li = list(map(lambda x: x*(-1), li))  # 各要素を -1 倍
+>>> minus_li
+[-1, -6, -8, 0, 1]
+
+>>> heapify(minus_li)  # 優先度付きキューに変換
+[-8, -6, -1, 0, 1]
+>>> heappop(minus_li) * (-1)  # li の最大値を取り出す
+8
+>>> heappush(minus_li, -3)
+>>> minus_li
+[-6, -3, -1, 0, 1]
 ```
