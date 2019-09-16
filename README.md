@@ -281,6 +281,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 #### *bisect*
 - **bisect_left**(a, x, lo=0, hi=len(a)) : ソートされた順序を保ったまま x を a に挿入できる点を探し当てます. リストの中から検索する部分集合を指定するには, パラメータの lo と hi を使います. 
+- **insort_left**(a, x, lo=0, hi=len(a)) : x を a にソート順で挿入します. これは, a がすでにソートされている場合, a.insert(bisect.bisect_left(a, x, lo, hi), x) と等価です. なお, O(log n) の探索に対して, 遅い O(n) の挿入の段階が律速となります. 
 ```python
 >>> from bisect import bisect_left, insort_left
 
